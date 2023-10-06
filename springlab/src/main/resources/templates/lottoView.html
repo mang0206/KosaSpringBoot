@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      text-align: center;
+    }
+    h3 {
+      color: red;
+    }
+    img {
+      width: 400px;
+      heigth : auto;
+    }
+  </style>
+</head>
+<body>
+<h1>로또 결과</h1>
+<hr>
+<h3> [[${lotto.result}]]</h3>
+[(${lotto.imgName})]
+<a th:if="${refinfo != null}" th:href="${refinfo}"><h2>재시도...</h2></a>
+</body>
+</html>
