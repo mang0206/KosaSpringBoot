@@ -2,6 +2,7 @@ package com.example.springedu.controller;
 import java.util.Locale;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -44,10 +45,11 @@ public class QueryStringController2 {
 		return mav;
 	}
 	@RequestMapping(value="/locale/mine")
-	public ModelAndView proc(Locale l) {
+	public ModelAndView proc(Locale l, @RequestHeader String referer) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("spring", "Processing locale ............"+
 		       l.getDisplayCountry()+"_"+l.getDisplayLanguage());
+		mav.addObject("refinfo", referer);
 		mav.setViewName("queryView2");
 		return mav;
 	}
