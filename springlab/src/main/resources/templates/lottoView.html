@@ -19,8 +19,8 @@
 <body>
 <h1>로또 결과</h1>
 <hr>
-<h3> [[${lotto.result}]]</h3>
-[(${lotto.imgName})]
+<h3> [(${lotto.result})]</h3>
+<img th:src="@{'/images/' + ${lotto.imgName} + '.png'}">
 <a th:if="${refinfo != null}" th:href="${refinfo}"><h2>재시도...</h2></a>
 </body>
 </html>
