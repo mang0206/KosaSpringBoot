@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>우리팀 소개</h1>
+<hr>
+<button onclick="teaminfo('name')">우리 팀명</button>
+<button onclick="teaminfo('member')">우리 팀원</button>
+<div id="result"></div>
+
+<script>
+	function teaminfo(tag) {
+		let xhr = new XMLHttpRequest();
+		xhr.onload = function() {
+			if (xhr.status == 200) {
+				let teamObj = JSON.parse(xhr.responseText);
+				let result = document.getElementById("result");
+				console.log(result);
+				if(tag == "name"){
+					result.innerHTML = `<h3>우리 팀의 팀명은 ${teamObj.teamName}</h3>`;
+				} else {
+					result.innerHTML = `<h3>${teamObj.teamName}의 팀원들을 소개합니다.</h3> <ul>`;
+					for(let i in teamObj.teamMember){
+					  let member = teamObj.teamMember[i]
+						result.innerHTML += `<li>${member.name} : 별명은 ${member.nickName}이고 좋아하는 음식은 ${member.food} </li>`
+					}
+					result.innerHTML += "</ul>";
+				}
+			}
+		};
+		xhr.open('GET', '/myTeam2', true);
+		xhr.send();
+	}
+</script>
+</body>
+</html>
