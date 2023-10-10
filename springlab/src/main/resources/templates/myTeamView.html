@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>우리팀 소개</h1>
+<hr>
+<button onclick="location.href='/myTeam1?request=Name'">우리 팀명</button>
+<button onclick="location.href='/myTeam1?request=Member'">우리 팀원</button>
+<th:block th:if="${response == 'Name'}">
+  <h3>우리 팀의 팀명은 <span th:text="${my.teamName}"></span>입니다.</h3>
+</th:block></body>
+<th:block th:if="${response == 'Member'}">
+  <h3> <span th:text="${my.teamName}"></span>의 팀원들을 소개합니다.</h3>
+  <ul th:each = "team : ${my.teamMember}">
+    <li th:text="${team}">Thymeleaf</li>
+  </ul>
+</th:block></body>
+</body>
+</html>
