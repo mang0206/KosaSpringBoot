@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 @RestController
 public class MyTeamController2 {
+
   @RequestMapping(value = "/myTeam2", produces = "application/json; charset=utf-8")
   public TeamDTO jsonTeam() {
     TeamDTO my = new TeamDTO();
