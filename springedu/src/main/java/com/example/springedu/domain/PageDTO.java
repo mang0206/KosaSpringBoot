@@ -8,6 +8,5 @@ import lombok.Setter;
 
 public class PageDTO {
 	private int startNum;
-	private int endNum;
 	private int countNum;
 }

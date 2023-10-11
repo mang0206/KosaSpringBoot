@@ -32,7 +32,7 @@ public class ThymeleafController2 {
         model.addAttribute("userMap", map);
 
         return "basic/variable";
-    }    
+    }
 
     @GetMapping("/basicobjects")
     public String basicObjects1(HttpSession session, Model model) {
@@ -112,14 +112,7 @@ public class ThymeleafController2 {
         addUsers(model); 
         return "basic/javascript";
     }
-    
-    @GetMapping("/utility")
-    public String utility(Model model) {     
-    	model.addAttribute("now",new java.util.Date());        
-        model.addAttribute("num", 123456789);
-        return "basic/utility";
-    }
-    
+
     @GetMapping("/fragment1")
     public String freg1() {
         return "basic/fragmentMain1";

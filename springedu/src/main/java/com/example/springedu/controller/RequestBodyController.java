@@ -14,14 +14,14 @@ public class RequestBodyController {
     @GetMapping("/bodystart")
     public String test0() {
         System.out.println("요청 성공");
-        return "result";
+        return "resultold";
     }
     @PostMapping("/rb1")
     public ModelAndView test1(String name, int age) {
         System.out.println(">>> " + name+":"+age);
         ModelAndView mav = new ModelAndView();
         mav.addObject("msg", "폼태그로 전달된 파라미터 : "+name+":"+age);
-        mav.setViewName("result");
+        mav.setViewName("resultold");
         return mav;
     }
     @PostMapping(value = "/rb2", produces = "application/json; charset=utf-8")

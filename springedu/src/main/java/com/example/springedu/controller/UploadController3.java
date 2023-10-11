@@ -15,43 +15,45 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class UploadController3 {
-	@Autowired
-	ServletContext context; 
-	@RequestMapping("/uploadForm3")
-	public void formFile() {
-	}
 
-	@RequestMapping("/upload3")
-	public ModelAndView saveFile(MultipartRequest mreq) {
-		ModelAndView mav = new ModelAndView();
-		List<MultipartFile> list = mreq.getFiles("mfile");
-		System.out.println(list.size()+"개가 업로드 됨");
-		String resultStr = "";
-		String path = "c:/uploadtest/multi";
-		File isDir = new File(path);
-		if (!isDir.isDirectory()) {
-			isDir.mkdirs();
-		}
-		mav.setViewName("uploadForm3");
-		for (MultipartFile mfile : list) {
-			String fileName = mfile.getOriginalFilename();
-			try {
-				File f = new File("c:/uploadtest/multi/" + fileName);
-				//String fileInfo = context.getRealPath("/") + "images/"+fileName;
-				//System.out.println(fileInfo);
-				//File f = new File(fileInfo);
-				if (f.exists()) {
-					resultStr += fileName + " : 파일이 이미 존재해요!!<br>";
-				} else {
-					mfile.transferTo(f);
-					resultStr += fileName + " : 파일이 저장되었어요!!<br>";
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-				resultStr += fileName + " : 오류가 발생했어요!!<br>";				
-			}
-		}
-		mav.addObject("msg", resultStr);	
-		return mav;
-	}
+  @Autowired
+  ServletContext context;
+
+  @RequestMapping("/uploadForm3")
+  public void formFile() {
+  }
+
+  @RequestMapping("/upload3")
+  public ModelAndView saveFile(MultipartRequest mreq) {
+    ModelAndView mav = new ModelAndView();
+    List<MultipartFile> list = mreq.getFiles("mfile");
+    System.out.println(list.size() + "개가 업로드 됨");
+    String resultStr = "";
+    String path = "c:/uploadtest/multi";
+    File isDir = new File(path);
+    if (!isDir.isDirectory()) {
+      isDir.mkdirs();
+    }
+    mav.setViewName("uploadForm3");
+    for (MultipartFile mfile : list) {
+      String fileName = mfile.getOriginalFilename();
+      try {
+        File f = new File("c:/uploadtest/multi/" + fileName);
+        //String fileInfo = context.getRealPath("/") + "images/"+fileName;
+        //System.out.println(fileInfo);
+        //File f = new File(fileInfo);
+        if (f.exists()) {
+          resultStr += fileName + " : 파일이 이미 존재해요!!<br>";
+        } else {
+          mfile.transferTo(f);
+          resultStr += fileName + " : 파일이 저장되었어요!!<br>";
+        }
+      } catch (IOException e) {
+        e.printStackTrace();
+        resultStr += fileName + " : 오류가 발생했어요!!<br>";
+      }
+    }
+    mav.addObject("msg", resultStr);
+    return mav;
+  }
 }
