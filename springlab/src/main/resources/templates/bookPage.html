@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 5px;
+    }
+    h1 {
+      padding-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+<h1>도서 게시판</h1>
+<hr>
+
+<a href="/book/b1">전체 도서 리스트 보기</a><br>
+<a href="/book/b2">가격이 높은 순으로 도서 리스트 보기</a><br>
+<a href="/book/b3">가격이 20000원 이상인 도서 리스트 보기</a><br>
+<a href="/book/b4">웹 프로그래밍 도서 리스트 보기</a><br>
+<a href="/book/b5">데이터베이스와 인프라 도서 리스트 보기</a><br>
+<a href="/book/b6">도서명에 '자바'가 포함된 도서 리스트 보기</a><br>
+<a href="/book/b7">분류별 도서 가격의 평균 보기</a><br>
+
+<hr>
+
+<ul th:each="book : ${list}">
+  <li th:text="${book}"></li>
+</ul>
+<hr th:if="${list}">
+<h3 th:if="${msg}"  th:text="${ msg }"></h3>
+
+<h1>도서 정보 입력</h1>
+<hr>
+<form action="/bookCreate" method="post" >
+  도서명 : <input type="text" name="title"><br>
+  가격 : <input type="text" name="price"> 원<br>
+  도서 분류 : <br>
+  <input type="radio" name="kind" value="b01">프로그래밍 언어 
+  <input type="radio" name="kind" value="b02">웹 프로그래밍 
+  <input type="radio" name="kind" value="b03">빅데이터 
+  <input type="radio" name="kind" value="b04">데이터베이스
+  <input type="radio" name="kind" value="b05">인프라 <br>
+  <input type="submit" value="저장">
+</form>
+</body>
+</html>
