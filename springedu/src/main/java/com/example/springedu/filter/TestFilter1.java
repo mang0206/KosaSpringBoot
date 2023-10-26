@@ -10,9 +10,9 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import java.io.IOException;
 
-//@Component
+@Component
 @Slf4j
-//@Order(2)
+@Order(2)
 public class TestFilter1 implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
                         throws IOException, ServletException {

@@ -1,0 +1,4 @@
+[2023-10-25 14:32:30:29718][http-nio-8088-exec-1] ERROR c.e.s.controller.LogTestController1 - error-로그를 테스트합니다!
+[2023-10-25 14:32:30:29719][http-nio-8088-exec-1] WARN  c.e.s.controller.LogTestController1 - warn-로그를 테스트합니다!
+[2023-10-25 14:32:30:29719][http-nio-8088-exec-1] INFO  c.e.s.controller.LogTestController1 - info-로그를 테스트합니다!
+[2023-10-25 14:32:30:29719][http-nio-8088-exec-1] DEBUG c.e.s.controller.LogTestController1 - debug-로그를 테스트합니다!
