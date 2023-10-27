@@ -9,7 +9,8 @@
 		<class>jpamvcexam.model.dto.EmpFreqDTO</class>
 		<class>jpamvcexam.model.dto.Visitor</class>
 		<class>jpamvcexam.model.dto.Meeting</class>
-	    <class>jpamvcexam.model.dto.Reply</class>
+	  <class>jpamvcexam.model.dto.Reply</class>
+	  <class>jpamvcexam.model.dto.Book</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.user" value="jdbctest" />

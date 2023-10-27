@@ -8,8 +8,9 @@ import java.util.List;
 
 public class EmpApp2 {
 	public static void hr() {
-		for(int i=1; i < 100; i++)
-			System.out.print("-");
+//		for(int i=1; i < 100; i++)
+//			System.out.print("-");
+		System.out.print("-".repeat(100));
 		System.out.println();
 	}
 	public static void main(String[] args)  {
