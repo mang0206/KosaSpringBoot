@@ -12,6 +12,8 @@
 	  <class>jpamvcexam.model.dto.Reply</class>
 	  <class>jpamvcexam.model.dto.Book</class>
 		<class>jpamvcexam.model.dto.Student</class>
+		<class>jpamvcexam.model.dto.Emp</class>
+		<class>jpamvcexam.model.dto.Dept</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.user" value="jdbctest" />

@@ -20,8 +20,8 @@ public class MemberTeamTest2 {
         String inputName = scan.nextLine();
         scan.close();
         
-        String jpql = "select m from Member m join m.team t where t.name = :tn";
-        
+//        String jpql = "select m from Member m join m.team t where t.name = :tn";
+        String jpql = "select m from Member m where m.team.name = :tn";
         TypedQuery<Member> q = em.createQuery(jpql, Member.class);
         q.setParameter("tn", inputName);
         List<Member> list = q.getResultList();

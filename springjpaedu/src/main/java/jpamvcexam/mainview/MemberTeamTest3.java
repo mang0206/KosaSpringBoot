@@ -17,7 +17,8 @@ public class MemberTeamTest3 {
         String inputName = scan.nextLine();
         scan.close();
         
-        String jpql = "select m from Member m join m.team t join m.locker l where m.username = :mn";
+//        String jpql = "select m from Member m join m.team t join m.locker l where m.username = :mn";
+        String jpql = "select m from Member m where m.username= :mn";
         
         TypedQuery<Member> q = em.createQuery(jpql, Member.class);
         q.setParameter("mn", inputName);
