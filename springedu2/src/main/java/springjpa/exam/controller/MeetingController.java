@@ -135,8 +135,9 @@ public class MeetingController  {
 	@GetMapping(value="/meeting/lreply", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public List<Reply> list_reply(int refid) {
-		Meeting mainWriting = repositoryM.findById(refid).get();
-		List<Reply> list = repositoryR.findByRefid(mainWriting);		
+//		Meeting mainWriting = repositoryM.findById(refid).get();
+//		List<Reply> list = repositoryR.findByRefid(mainWriting);
+		List<Reply> list = repositoryR.findByRefIdId(refid);
 		return list;
 	}
 }

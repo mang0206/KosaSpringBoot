@@ -27,7 +27,7 @@ public interface MemberTeamLockerRepository extends JpaRepository<Member, Intege
 
 	public TeamName getByUsername(String uname);
 
-	public List<Member>  findAll();
+//	public List<Member>  findAll();
 
 	public Member  getByLockerName(String lname);
 	

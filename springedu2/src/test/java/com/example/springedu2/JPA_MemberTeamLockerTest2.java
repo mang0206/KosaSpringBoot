@@ -18,7 +18,7 @@ public class JPA_MemberTeamLockerTest2 {
     @Autowired
     private MemberTeamLockerRepository repo;
     
-    @BeforeEach()
+    @BeforeEach
     void pr() {
     	System.out.println("=".repeat(80));
     }
