@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      text-align: center;
+    }
+    button {
+      margin : 10px
+    }
+  </style>
+</head>
+<body>
+  <h1>Unimeeting 조의 REST API 실습</h1>
+  <hr>
+  <button id="all" onclick="allbtn()">둘리와 친구들 보기</button>
+  <hr id="h1">
+  <div id="btn_show"></div>
+  <hr>
+  <div id="act_show"></div>
+  <script>
+    function allbtn() {
+      var xhr = new XMLHttpRequest();
+	    xhr.onload = function () {
+        let actObj = JSON.parse(xhr.responseText);
+        let div = document.getElementById("btn_show");
+        div.innerHTML = '';
+        for(let o of actObj){
+          let btn = document.createElement("button");
+          btn.textContent = o.name
+          console.log(o.links)
+          btn.value = o.links[0].href
+          div.appendChild(btn)
+        }
+
+        div.addEventListener("click", makeinfo)
+      }
+      xhr.open('GET', '/all', true);
+      xhr.send();
+    }
+
+    function makeinfo(e){
+      console.log(e.target)
+     
+      var xhr = new XMLHttpRequest();
+      let div = document.getElementById("act_show");
+      div.innerHTML = "";
+      xhr.onload = function () {
+        let actObj = JSON.parse(xhr.responseText);
+        console.log(actObj)
+        let h3 = document.createElement("h3")
+        h3.textContent = actObj.name;
+        div.appendChild(h3);
+
+        let h3_2 = document.createElement("h3")
+        h3_2.textContent = actObj.addr;
+        div.appendChild(h3_2);
+
+        let img = document.createElement("img");
+        img.src = "/images/" + actObj.image;
+
+        div.appendChild(img);
+      }
+      xhr.open('GET', e.target.value, true);
+      xhr.send();
+      
+    }
+
+  </script>
+</body>
+</html>

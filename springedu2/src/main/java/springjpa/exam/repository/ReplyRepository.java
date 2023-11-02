@@ -9,6 +9,6 @@ import springjpa.exam.entity.Reply;
 
 public interface ReplyRepository extends JpaRepository<Reply, Integer>{
 
-	public List<Reply> findByRefid(Meeting vo);	
-	public List<Reply> findByRefIdId(int id);
+	public List<Reply> findByRefid(Meeting vo);
+//	public List<Reply> findByRefIdId(int id);
 }

@@ -68,7 +68,7 @@ public class BoardController {
 	public ResponseEntity<String> register(@RequestBody Board board) {
 		log.info("register 요청");
 		boardList.add(board);
-		ResponseEntity<String> entity = new ResponseEntity<>("성공적으로 삽입했어용", HttpStatus.OK);
+		ResponseEntity<String> entity = new ResponseEntity<>("성공적으로 삽입했어용", HttpStatus.CREATED);
 
 		return entity;
 	}
