@@ -16,9 +16,9 @@ public class HateoasRestController {
     ComicActorModel cm1 = new ComicActorModel("둘리");
     ComicActorModel cm2 = new ComicActorModel("또치");
     ComicActorModel cm3 = new ComicActorModel("도우너");
-    cm1.add(Link.of("http://localhost:8088/dooly"));
-    cm2.add(Link.of("http://localhost:8088/ddochi"));
-    cm3.add(Link.of("http://localhost:8088/dauner"));
+    cm1.add(Link.of("http://192.168.3.123:8088/dooly"));
+    cm2.add(Link.of("http://192.168.3.123:8088/ddochi"));
+    cm3.add(Link.of("http://192.168.3.123:8088/dauner"));
 
     list.add(cm1);
     list.add(cm2);

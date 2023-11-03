@@ -1,5 +1,10 @@
 package springrest.exam.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,12 +54,12 @@ public class BoardController {
 		boardList.add(board);
 	}
 
-	/*@Operation(summary = "Boards 의 리스트를 출력")
+	@Operation(summary = "Boards 의 리스트를 출력")
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "Board 리스트",
 					content = { @Content(mediaType = "application/json",
 							schema = @Schema(implementation = Board.class)) })
-	})*/
+	})
 	@GetMapping
 	public ResponseEntity<List<Board>> list() {
 		log.info("list 요청");
@@ -73,13 +78,13 @@ public class BoardController {
 		return entity;
 	}
 
-	/*@Operation(summary = "boardNo 에 해당하는 Board 글 출력")
+	@Operation(summary = "boardNo 에 해당하는 Board 글 출력")
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "Board 글",
 					content = { @Content(mediaType = "application/json",
 							schema = @Schema(implementation = Board.class)) }),
 			@ApiResponse(responseCode = "404", description = "boardNo 에 해당하는 Board 글이 없음",
-					content = @Content) })*/
+					content = @Content) })
 	@GetMapping("/{boardNo}")
 	public ResponseEntity<Board> read(@PathVariable("boardNo") int boardNo) {
 		log.info("read 요청");
