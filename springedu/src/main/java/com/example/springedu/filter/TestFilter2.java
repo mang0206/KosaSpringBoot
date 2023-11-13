@@ -6,7 +6,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import java.io.IOException;
 
-@Component
+//@Component
 @Slf4j
 @Order(1)
 public class TestFilter2 implements Filter {

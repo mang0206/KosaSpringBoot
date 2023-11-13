@@ -16,6 +16,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;*/
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,6 +32,8 @@ import springrest.exam.domain.Board;
 @Slf4j
 @RestController
 @RequestMapping("/boards")
+//@CrossOrigin(origins = "http://127.0.0.1:5500")
+@CrossOrigin(origins="*")
 public class BoardController {
 
 	List<Board> boardList = new ArrayList<>();
